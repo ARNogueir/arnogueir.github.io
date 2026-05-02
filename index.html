@@ -1,205 +1,389 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-PT" data-theme="light">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ARNogueira</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-            crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/59955e71c5.js" crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEY076GZMB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HEY076GZMB');
-</script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>André Nogueira — Android Developer</title>
+    <meta name="description" content="Portfólio pessoal de André Nogueira, Android Developer especializado em Kotlin, Jetpack Compose e Clean Architecture." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .profileImage {
-            margin-top: 20px;
-            width: auto;
-            border-radius: 30%;
-            max-width: 200px;
+        :root, [data-theme="light"] {
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+            --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+            --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+            --text-hero: clamp(3.2rem, 1rem + 7vw, 7rem);
+            --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+            --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+            --color-bg: #f5f7ff; --color-surface: #ffffff; --color-surface-2: #eef2ff; --color-border: #d9def8;
+            --color-text: #1c2340; --color-text-muted: #5d688f; --color-text-faint: #9da6c7; --color-text-inverse: #fdfcff;
+            --color-primary: #4f46e5; --color-primary-hover: #3f36cc; --color-primary-soft: #e7e7ff;
+            --color-secondary: #06b6d4; --color-accent: #f59e0b; --color-accent-soft: #fff0cf;
+            --radius-sm: 0.4rem; --radius-md: 0.7rem; --radius-lg: 1rem; --radius-xl: 1.4rem; --radius-full: 999px;
+            --shadow-sm: 0 1px 2px rgba(54,32,120,.05); --shadow-md: 0 12px 30px rgba(83,52,171,.12);
+            --content: 1120px;
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body: 'Inter', sans-serif;
         }
-
-        .backgroundPrimario {
-            background-color: #41729F;
+        [data-theme="dark"] {
+            --color-bg: #0d1220; --color-surface: #12182a; --color-surface-2: #182035; --color-border: #2a3454;
+            --color-text: #eef2ff; --color-text-muted: #aab7d6; --color-text-faint: #6f7c9d; --color-text-inverse: #0d1220;
+            --color-primary: #7c89ff; --color-primary-hover: #a4adff; --color-primary-soft: #20284a;
+            --color-secondary: #3dd3ee; --color-accent: #ffbe55; --color-accent-soft: #3b2b14;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,.25); --shadow-md: 0 14px 34px rgba(0,0,0,.34);
         }
-
-        .backgroundSecundario {
-            background-color: #C3E0E5;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            min-height: 100dvh; font-family: var(--font-body),sans-serif; font-size: var(--text-base); line-height: 1.65;
+            background:
+                    radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 30%),
+                    radial-gradient(circle at top right, color-mix(in srgb, var(--color-secondary) 10%, transparent), transparent 28%),
+                    radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 25%),
+                    var(--color-bg); color: var(--color-text); -webkit-font-smoothing: antialiased;
         }
-
-        p {
-            font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #C3E0E5 !important;
+        img, svg { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; border: 0; background: none; cursor: pointer; }
+        :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+        .container { width: min(calc(100% - 2rem), var(--content)); margin: 0 auto; }
+        .skip-link { position: absolute; left: -9999px; }
+        .skip-link:focus { left: 1rem; top: 1rem; z-index: 1000; background: var(--color-primary); color: white; padding: .75rem 1rem; border-radius: var(--radius-md); }
+        .site-header {
+            position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px);
+            background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+            border-bottom: 1px solid var(--color-border);
         }
-
-        .icones {
-            padding-left: 5px;
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+            min-height: 74px;
         }
-
-        .greenTitles {
-            text-decoration: underline;
-            text-underline-position: below;
-            padding-bottom: 20px;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: #41729F;
+        .brand { display: flex; align-items: center; gap: .9rem; }
+        .logo {
+            width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 10%, var(--color-surface))); border: 1px solid var(--color-border);
+            display: grid; place-items: center; box-shadow: var(--shadow-sm);
         }
-
-        .textoBranco {
-            color: #C3E0E5 !important;
+        .brand-mark { width: 22px; height: 22px; color: var(--color-primary); }
+        .brand-text strong { display: block; font-size: var(--text-sm); }
+        .brand-text span { display: block; color: var(--color-text-muted); font-size: var(--text-xs); }
+        .nav { display: flex; align-items: center; gap: 1rem; }
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+        .nav-links a:hover { color: var(--color-text); }
+        .theme-toggle {
+            width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px;
+            border: 1px solid var(--color-border); background: var(--color-surface);
         }
-
-
-        html {
-            scroll-behavior: smooth;
+        .hero {
+            padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 7vw, 6rem);
         }
-
+        .hero-grid {
+            display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem, 4vw, 4rem); align-items: center;
+        }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--color-primary-soft), color-mix(in srgb, var(--color-secondary) 12%, var(--color-primary-soft))); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+            margin-bottom: var(--space-5);
+        }
+        h1 {
+            font-family: var(--font-display),sans-serif; font-size: var(--text-hero); line-height: .92; letter-spacing: -0.04em; max-width: 10ch;
+            margin-bottom: var(--space-5);
+        }
+        .hero p {
+            max-width: 58ch; color: var(--color-text-muted); margin-bottom: var(--space-8);
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; }
+        .btn {
+            min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 1.1rem;
+            border-radius: 14px; font-size: var(--text-sm); font-weight: 600; border: 1px solid var(--color-border);
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-secondary))); color: var(--color-text-inverse); border-color: transparent; }
+        .btn-primary:hover { background: var(--color-primary-hover); }
+        .btn-secondary { background: var(--color-surface); }
+        .hero-card {
+            background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 6%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 6%, var(--color-surface-2))); border: 1px solid var(--color-border);
+            border-radius: 28px; padding: clamp(1.5rem, 3vw, 2rem); box-shadow: var(--shadow-md);
+        }
+        .terminal {
+            border-radius: 22px; overflow: hidden; border: 1px solid var(--color-border); background: #111;
+        }
+        .terminal-top { display: flex; gap: .5rem; padding: .9rem 1rem; background: #1d1d1d; }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot:nth-child(1){ background:#ff5f57; } .dot:nth-child(2){ background:#febc2e; } .dot:nth-child(3){ background:#28c840; }
+        .terminal-body {
+            padding: 1.25rem; color: #d8f8dc; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95rem; line-height: 1.7;
+        }
+        .terminal-body .muted { color: #8dbd94; }
+        .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1rem; }
+        .stat {
+            background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 18px; padding: 1rem;
+        }
+        .stat strong { display:block; font-size: var(--text-lg); }
+        .stat span { color: var(--color-text-muted); font-size: var(--text-xs); }
+        section { padding: clamp(3rem, 6vw, 6rem) 0; }
+        .section-head { margin-bottom: 1.5rem; }
+        .section-head h2 { font-size: var(--text-xl); line-height: 1.05; margin-bottom: .5rem; }
+        .section-head p { color: var(--color-text-muted); max-width: 64ch; }
+        .about-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .panel {
+            background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px; padding: clamp(1.25rem, 2vw, 1.7rem);
+            box-shadow: var(--shadow-sm);
+        }
+        .panel h3 { font-size: var(--text-lg); margin-bottom: .7rem; }
+        .panel p { color: var(--color-text-muted); }
+        .chips { display:flex; flex-wrap:wrap; gap: .75rem; }
+        .chip {
+            padding: .7rem .95rem; border-radius: var(--radius-full); background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-2)), color-mix(in srgb, var(--color-secondary) 7%, var(--color-surface))); border: 1px solid var(--color-border);
+            font-size: var(--text-sm); font-weight: 500;
+        }
+        .projects {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+        }
+        .project {
+            background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px; padding: 1.15rem;
+            display: flex; flex-direction: column; gap: 1rem; min-height: 100%;
+        }
+        .project-visual {
+            aspect-ratio: 16 / 10; border-radius: 18px; background:
+                radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 38%, transparent), transparent 42%),
+                radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 38%),
+                linear-gradient(135deg, color-mix(in srgb, var(--color-secondary) 12%, var(--color-surface-2)), var(--color-surface));
+            border: 1px solid var(--color-border);
+            padding: 1rem; display: flex; align-items: end;
+        }
+        .project-visual span {
+            font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted);
+            padding: .45rem .65rem; border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-bg) 75%, transparent);
+            border: 1px solid var(--color-border);
+        }
+        .project h3 { font-size: 1.1rem; }
+        .project p { color: var(--color-text-muted); flex: 1; }
+        .project a { color: var(--color-primary); font-size: var(--text-sm); font-weight: 600; }
+        .contact-list { display: grid; gap: .9rem; }
+        .contact-item {
+            display:flex; justify-content:space-between; gap:1rem; padding: 1rem 1.1rem; border-radius: 18px;
+            background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 8%, var(--color-surface-2)), var(--color-surface)); border: 1px solid var(--color-border);
+        }
+        .contact-item span { color: var(--color-text-muted); font-size: var(--text-sm); }
+        footer {
+            padding: 2rem 0 3rem; color: var(--color-text-muted); border-top: 1px solid var(--color-border);
+        }
+        @media (max-width: 960px) {
+            .hero-grid, .about-grid, .contact-grid, .projects { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr 1fr 1fr; }
+            .nav-links { display: none; }
+            h1 { max-width: 12ch; }
+        }
+        @media (max-width: 640px) {
+            .container { width: min(calc(100% - 1.25rem), var(--content)); }
+            .stats { grid-template-columns: 1fr; }
+            .header-inner { min-height: 68px; }
+            .hero-actions { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+        }
     </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md navbar-light " style="background-color: #274472">
-    <a class="navbar-brand" href="#" style=color:#C3E0E5>André Nogueira</a>
-    <button class="navbar-toggler " style="background-color: #274472" type="button" data-toggle="collapse"
-            data-target="#navbarsExample04"
-            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-        <ul class="navbar-nav ">
-            <li class="nav-item ">
-                <a class="nav-link textoBranco" href="#projetos">Projetos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link textoBranco" href="#sobremim">Sobre Mim</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link textoBranco" href="#contacto">Contatos</a>
-            </li>
-        </ul>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="#topo" class="brand" aria-label="Voltar ao topo">
+            <div class="logo" aria-hidden="true">
+                <svg class="brand-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 18V6L12 11.5L19 6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 18V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M16 18V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <strong>André Nogueira</strong>
+                <span>Android Developer</span>
+            </div>
+        </a>
+        <div class="nav">
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="#sobre">Sobre</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#stack">Stack</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Mudar tema">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
     </div>
-</nav>
+</header>
 
-<section class="jumbotron text-center backgroundPrimario">
-    <div class="container">
-        <img class="profileImage" src="/images/profile.png" alt="">
-        <h1 class="jumbotron-heading textoBranco">André Nogueira</h1>
-        <p class="lead textoBranco">Junior Android Developer</p>
-        <a href="#"> <i class="icones fab fa-linkedin textoBranco" style="font-size:36px"></i></a>
-        <a href="#"> <i class="icones fab fa-github textoBranco" style="font-size:36px"></i></a>
-    </div>
-</section>
-
-<section class="jumbotron text-center backgroundSecundario" id="projetos">
-    <div class="album py-5 ">
-        <div class="container">
-            <h3 class="jumbotron-heading text-center greenTitles">Projetos</h3>
-            <div class="row">
-                <!--<div class="col-md-12">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                             src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17f7037ccb2%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17f7037ccb2%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                             data-holder-rendered="true">
-                        <div class="card-body">
-                            <p class="card-text">Site para gestão de conferências e palestras</p>
-                            <ul>
-                                <li>PHP</li>
-                                <li>Laravel</li>
-                                <li>Mysql</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="https://github.com/ANogueiraUFP/projeto_labprog">
-                                        <button type="button" class="btn btn-sm btn-outline-success">GitHub</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+<main id="conteudo">
+    <section class="hero" id="topo">
+        <div class="container hero-grid">
+            <div>
+                <div class="eyebrow">Kotlin · Compose · Clean Architecture</div>
+                <h1>Construo apps Android modernas e bem pensadas.</h1>
+                <p>
+                    Sou Android Developer e trabalho na criação de aplicações robustas, com foco em arquitetura limpa, boa experiência de utilização e evolução sustentável do produto. Este portfólio foi desenhado para apresentar projetos, competências técnicas e a forma como abordo desenvolvimento mobile moderno.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+                    <a class="btn btn-secondary" href="#contacto">Entrar em contacto</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="terminal" aria-label="Resumo técnico">
+                    <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                    <div class="terminal-body">
+                        <div><span class="muted">developer</span>: André Nogueira</div>
+                        <div><span class="muted">focus</span>: Android Development</div>
+                        <div><span class="muted">stack</span>: Kotlin, Compose, MVVM</div>
+                        <div><span class="muted">approach</span>: Clean Architecture</div>
+                        <div><span class="muted">interests</span>: Mobile, IA, UX, arquitetura</div>
                     </div>
-                </div>-->
-                <!--<div class="col-md-6">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                             src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17f7037ccb2%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17f7037ccb2%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                             data-holder-rendered="true">
-                        <div class="card-body">
-                            <p class="card-text">Site para gestão de conferências e palestras</p>
-                            <ul>
-                                <li>PHP</li>
-                                <li>Laravel</li>
-                                <li>Mysql</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="https://github.com/ANogueiraUFP/projeto_labprog">
-                                        <button type="button" class="btn btn-sm btn-outline-success">GitHub</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+                </div>
+                <div class="stats" aria-label="Indicadores profissionais">
+                    <div class="stat"><strong>4+ anos</strong><span>Experiência Android</span></div>
+                    <div class="stat"><strong>Kotlin</strong><span>Stack principal</span></div>
+                    <div class="stat"><strong>IA</strong><span>Interesse em integração mobile</span></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Sobre Mim-->
-<section class="jumbotron text-center backgroundPrimario" id="sobremim">
-    <div class="album py-5 ">
+    <section id="sobre">
         <div class="container">
-            <h3 class="jumbotron-heading textoBranco">Sobre mim</h3>
-            <p class="lead">
-                <!--TEXT ABOUT ME-->
-            </p>
+            <div class="section-head">
+                <h2>Sobre mim</h2>
+                <p>Uma apresentação clara, profissional e focada em impacto técnico.</p>
+            </div>
+            <div class="about-grid">
+                <article class="panel">
+                    <h3>Perfil</h3>
+                    <p>
+                        Desenvolvedor Android com experiência na construção de aplicações em Kotlin, uso de Jetpack Compose e organização do código com princípios de Clean Architecture. Gosto de criar soluções estáveis, legíveis e preparadas para crescer com o produto.
+                    </p>
+                </article>
+                <article class="panel">
+                    <h3>O que valorizo</h3>
+                    <p>
+                        Valorizo código bem estruturado, interfaces cuidadas, boa separação de responsabilidades e aprendizagem contínua. Tenho também interesse em explorar integração de IA em aplicações mobile e em evoluir para soluções mais completas entre app, backend e web.
+                    </p>
+                </article>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!--Contacto-->
-<section class="jumbotron text-center backgroundSecundario" id="contacto">
-    <div class="album py-5 ">
-
+    <section id="projetos">
         <div class="container">
-            <h4 class="text-center greenTitles">Contactos</h4>
-            <a href="mailto:anogueiracb@gmail.com"><h4 style=" margin-right: 10px;color:#41729F "
-                                                       class="text-center"><i class="fa fa-envelope"
-                                                                              style="font-size:30px;color:#41729F;margin-right: 10px;margin-bottom: 0"></i>ARNogueira
-            </h4></a>
+            <div class="section-head">
+                <h2>Projetos em destaque</h2>
+                <p>Podes substituir os títulos, descrições e links quando tiveres a seleção final dos projetos.</p>
+            </div>
+            <div class="projects">
+                <article class="project">
+                    <div class="project-visual"><span>Android · Health</span></div>
+                    <h3>HealthVitaAssistant</h3>
+                    <p>Projeto orientado para saúde e acompanhamento do utilizador, pensado para juntar Android moderno, boa arquitetura e evolução futura com funcionalidades inteligentes.</p>
+                    <a href="#">Adicionar link depois</a>
+                </article>
+                <article class="project">
+                    <div class="project-visual"><span>Kotlin · API</span></div>
+                    <h3>Projeto Android 2</h3>
+                    <p>Espaço reservado para uma aplicação com integração de API, persistência local e foco em experiência de utilização e organização por camadas.</p>
+                    <a href="#">Adicionar link depois</a>
+                </article>
+                <article class="project">
+                    <div class="project-visual"><span>Compose · Clean</span></div>
+                    <h3>Projeto Android 3</h3>
+                    <p>Espaço reservado para um projeto que mostre arquitetura, reutilização de componentes e capacidade de desenvolver funcionalidades de forma sustentável.</p>
+                    <a href="#">Adicionar link depois</a>
+                </article>
+            </div>
         </div>
-    </div>
-</section>
-<footer class=" text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #274472;color: #C3E0E5">
-        © 2022 Copyright:
-        <a href="https://www.arnogueira.com/" style="color: #C3E0E5">ARNogueira.com</a>
+    </section>
+
+    <section id="stack">
+        <div class="container">
+            <div class="section-head">
+                <h2>Stack técnica</h2>
+                <p>Competências principais que podes ajustar, remover ou expandir conforme o teu foco atual.</p>
+            </div>
+            <div class="panel">
+                <div class="chips" role="list" aria-label="Lista de competências">
+                    <span class="chip" role="listitem">Kotlin</span>
+                    <span class="chip" role="listitem">Android SDK</span>
+                    <span class="chip" role="listitem">Jetpack Compose</span>
+                    <span class="chip" role="listitem">MVVM</span>
+                    <span class="chip" role="listitem">Clean Architecture</span>
+                    <span class="chip" role="listitem">Room</span>
+                    <span class="chip" role="listitem">Retrofit</span>
+                    <span class="chip" role="listitem">Coroutines</span>
+                    <span class="chip" role="listitem">Flow</span>
+                    <span class="chip" role="listitem">Git</span>
+                    <span class="chip" role="listitem">REST APIs</span>
+                    <span class="chip" role="listitem">Integração de IA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <div class="section-head">
+                <h2>Contacto</h2>
+                <p>Deixo já a estrutura pronta para preencheres os links depois.</p>
+            </div>
+            <div class="contact-grid">
+                <article class="panel">
+                    <h3>Vamos falar</h3>
+                    <p>
+                        Podes usar esta secção para colocar o teu email profissional, GitHub, LinkedIn e outros links relevantes. A ideia é manter tudo simples, direto e fácil de atualizar.
+                    </p>
+                </article>
+                <div class="contact-list" aria-label="Métodos de contacto">
+                    <div class="contact-item"><strong>Email</strong><span>anogueiracb@gmail.com</span></div>
+                    <div class="contact-item"><strong>GitHub</strong><span>Adicionar link depois</span></div>
+                    <div class="contact-item"><strong>LinkedIn</strong><span>Adicionar link depois</span></div>
+                    <div class="contact-item"><strong>Localização</strong><span>Porto, Portugal</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© <span id="year"></span> André Nogueira — Portfólio pessoal.</p>
     </div>
 </footer>
+
+<script>
+    (function () {
+        const root = document.documentElement;
+        const toggle = document.querySelector('[data-theme-toggle]');
+        let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.setAttribute('data-theme', theme);
+        function renderIcon(mode) {
+            toggle.innerHTML = mode === 'dark'
+                ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+                : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"></path></svg>';
+            toggle.setAttribute('aria-label', mode === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
+        }
+        renderIcon(theme);
+        toggle.addEventListener('click', function () {
+            theme = theme === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', theme);
+            renderIcon(theme);
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+</script>
 </body>
 </html>
